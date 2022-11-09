@@ -9,14 +9,29 @@
 <ion-content [fullscreen]="true">
   <ion-card class="margem altura">
     <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
+      <br>
+      <ion-card-title class="ion-text-center">Insira seus dados</ion-card-title>
     </ion-card-header>
 
     <ion-card-content>
-      <ion-thumbnail>
-        <h2>Email</h2>
-      </ion-thumbnail>
+      <br>
+
+      <ion-item>
+        <ion-icon name="mail-outline"></ion-icon>
+        <ion-label class="marginha">Email</ion-label>
+      </ion-item>
+
+      <br>
+
+      <br>
+      <ion-item>
+        <ion-icon name="lock-closed-outline"></ion-icon>
+        <ion-label class="marginha">Senha</ion-label>
+      </ion-item>
+
+      <br>
+
+      <h2 [routerLink]="['../tab3']" class="ion-text-center">Não está cadastrado? Clique aqui!!!</h2>
     </ion-card-content>
   </ion-card>
 </ion-content>
