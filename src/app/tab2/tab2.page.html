@@ -1,8 +1,12 @@
 <ion-header>
-  <ion-toolbar class="ion-text-center" color="cu">
-    <ion-title>
+  <ion-toolbar color="cu">
+    <ion-title class="top" >
       Login
     </ion-title>
+
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home" [routerLink]="['../tab1']" routerLinkActive="router-link-active"></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -19,7 +23,8 @@
 
       <ion-item>
         <ion-icon name="mail-outline"></ion-icon>
-        <ion-label class="marginha">Email</ion-label>
+        <ion-label class="marginha">Email:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
 
       <br>
@@ -27,12 +32,15 @@
       <br>
       <ion-item>
         <ion-icon name="lock-closed-outline"></ion-icon>
-        <ion-label class="marginha">Senha</ion-label>
+        <ion-label class="marginha">Senha:</ion-label>
+        <ion-input></ion-input>
       </ion-item>
 
       <br>
 
       <h2 [routerLink]="['../tab3']" class="ion-text-center">Não está cadastrado? Clique aqui!!!</h2>
+      <br>
+      <h3 [routerLink]="['../tab3']" class="ion-text-center">Esqueci minha senha</h3>
     </ion-card-content>
   </ion-card>
 

@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar color="cu">
-    <ion-title class="ion-text-center">
-      Cadastro
-    </ion-title>
+      <ion-title class="top">
+        Cadastro
+      </ion-title>
+
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="home" [routerLink]="['../tab2']" routerLinkActive="router-link-active"></ion-back-button>
+        </ion-buttons>
   </ion-toolbar>
+
 </ion-header>
 
 <ion-content [fullscreen]="true">
@@ -19,42 +24,36 @@
     <br>
 
     <ion-item>
-      <ion-label>Nome</ion-label>
+      <ion-label>Nome:</ion-label>
+      <ion-input></ion-input>
     </ion-item>
 
     <br>
 
     <ion-item>
-
-      <ion-label>Cpf</ion-label>
+      <ion-label>Cpf:</ion-label>
+      <ion-input></ion-input>
     </ion-item>
 
     <br>
 
     <ion-item>
-
-      <ion-label>Email</ion-label>
+      <ion-label>Email:</ion-label>
+      <ion-input></ion-input>
     </ion-item>
 
     <br>
 
     <ion-item>
-
-      <ion-label>Telefone</ion-label>
+      <ion-label>Senha:</ion-label>
+      <ion-input></ion-input>
     </ion-item>
 
     <br>
 
     <ion-item>
-
-      <ion-label>Senha</ion-label>
-    </ion-item>
-
-    <br>
-
-    <ion-item>
-
-      <ion-label>Confirmar Senha</ion-label>
+      <ion-label>Confirmar Senha:</ion-label>
+      <ion-input></ion-input>
     </ion-item>
 
   </ion-card-content>
