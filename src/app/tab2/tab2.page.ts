@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/semi */
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-tab2',
@@ -7,6 +8,27 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['tab2.page.scss'],
 })
 export class Tab2Page {
+
+  formCadastro: FormGroup;
+
+  mensagens = {
+    email: [
+      { tipo: 'required', mensagem: 'O campo E-mail é obrigatório.' },
+      { tipo: 'email', mensagem: 'E-mail Inválido.' },
+    ],
+    senha: [
+      { tipo: 'required', mensagem: 'É obrigatório confirmar senha.' },
+      {
+        tipo: 'minlength',
+        mensagem: 'A senha deve ter pelo menos 6 caracteres.',
+      },
+      {
+        tipo: 'maxlength',
+        mensagem: 'A senha deve ter no máximo 8 caractéres.',
+      },
+    ],
+  }
+
   formLogin = this.formsBuilder.group({
     email: ['', Validators.compose([Validators.required, Validators.email])],
     senha: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(8)])],
