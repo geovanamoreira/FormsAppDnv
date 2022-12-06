@@ -2,6 +2,7 @@
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-tab3',
   templateUrl: 'tab3.page.html',
@@ -57,9 +58,6 @@ export class Tab3Page {
     });
   }
 
-  salvarCadastro(){
-    console.log('Formulário: ', this.formCadastro.valid);
-  }
 
   async presentAlert() {
     const alert = await this.alertController.create({

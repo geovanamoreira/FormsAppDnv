@@ -1,7 +1,11 @@
+/* eslint-disable max-len */
 /* eslint-disable @typescript-eslint/semi */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { Produto } from '../models/Produto';
+import { StorageService } from '../services/storage.service';
 
 @Component({
   selector: 'app-tab4',
@@ -11,6 +15,7 @@ import { AlertController } from '@ionic/angular';
 export class Tab4Page {
 
   formCadastro: FormGroup;
+  produto: Produto = new Produto();
 
   mensagens = {
     nomeProduto: [
@@ -45,7 +50,7 @@ export class Tab4Page {
 
   }
 
-  constructor(private alertController: AlertController, private formsBuilder: FormBuilder) {
+  constructor(private alertController: AlertController, private formsBuilder: FormBuilder, private storageService: StorageService, private route: Router) {
     this.formCadastro = this.formsBuilder.group({
       nomeProduto: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
       descricao: ['', Validators.compose([Validators.required, Validators.minLength(4)])],
@@ -54,8 +59,18 @@ export class Tab4Page {
     });
   }
 
-  salvarCadastro(){
-    console.log('Formulário: ', this.formCadastro.valid);
+  async salvarCadastro(){
+    if(this.formCadastro.valid){
+      this.produto.nomeProduto = this.formCadastro.value.nomeProduto;
+      this.produto.descricao = this.formCadastro.value.descricao;
+      this.produto.validade = this.formCadastro.value.validade;
+      this.produto.preco = this.formCadastro.value.preco;
+      await this.storageService.set(this.produto.nomeProduto, this.produto);
+      this.route.navigateByUrl('/produtos');
+    }
+    else{
+      alert('formulário Inválido!');
+    }
   }
 
   async presentAlert() {
