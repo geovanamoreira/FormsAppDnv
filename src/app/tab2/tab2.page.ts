@@ -11,10 +11,28 @@ export class Tab2Page {
 
   formCadastro: FormGroup;
 
-  formLogin = this.formsBuilder.group({
-    email: ['', Validators.compose([Validators.required, Validators.email])],
-    senha: ['', Validators.compose([Validators.required, Validators.minLength(2), Validators.maxLength(8)])],
-  });
+  mensagens = {
+    email: [
+      { tipo: 'required', mensagem: 'Preencher o campo E-mail é obrigatório.' },
+      {
+        tipo: 'minlength',
+        mensagem: 'O nome deve ter pelo menos 4 caracteres.',
+      },
+    ],
 
-  constructor(private formsBuilder: FormBuilder) {}
+    senha: [
+      { tipo: 'required', mensagem: 'Preencher o campo E-mail é obrigatório.' },
+      {
+        tipo: 'minlength',
+        mensagem: 'O nome deve ter pelo menos 4 caracteres.',
+      },
+    ],
+  }
+
+  constructor(private formBuilder: FormBuilder) {
+    this.formCadastro = this.formBuilder.group({
+      email: ['', Validators.compose([Validators.required, Validators.email])],
+      senha: ['', Validators.compose([Validators.required, Validators.minLength(4)])]
+    })
+  }
 }
